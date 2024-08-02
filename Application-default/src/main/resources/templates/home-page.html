@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Application Home Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            font-size: 36px;
+            color: #343a40;
+            margin-bottom: 30px;
+        }
+        p {
+            font-size: 18px;
+            color: #495057;
+        }
+        .role-section {
+            margin-top: 20px;
+        }
+        .role-section p {
+            margin-bottom: 10px;
+        }
+        .btn-outline-primary {
+            font-size: 18px;
+        }
+        hr {
+            border-top: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Quiz Application Home Page</h2>
+    <hr>
+    <p>
+        Welcome to the Online Quiz Application home page!
+    </p>
+    <hr>
+    <!-- Display user name and role(s) -->
+    <p>
+        You are LoggedIn as: <span sec:authentication="principal.username"></span>
+        <br><br>
+        Role(s): <span sec:authentication="principal.authorities"></span>
+    </p>
+    <div class="role-section" sec:authorize="hasRole('ADMIN')">
+        <p>
+            <a class="btn btn-primary" th:href="@{/admin}">ADMIN DASHBOARD</a>
+            <span class="text-muted">(Only for admin)</span>
+        </p>
+    </div>
+    <div class="role-section" sec:authorize="hasRole('STUDENT')">
+        <p>
+            <a class="btn btn-primary" th:href="@{/student}">STUDENT DASHBOARD</a>
+            <span class="text-muted">(Only for student)</span>
+        </p>
+    </div>
+    <div class="role-section" sec:authorize="hasRole('PROFESSOR')">
+        <p>
+            <a class="btn btn-primary" th:href="@{/professor}">PROFESSOR DASHBOARD</a>
+            <span class="text-muted">(Only for professor)</span>
+        </p>
+    </div>
+    <hr>
+    <!-- Add a logout button -->
+    <form action="#" th:action="@{/logout}" method="POST">
+        <input type="submit" value="Logout" class="btn btn-outline-primary mt-2" />
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

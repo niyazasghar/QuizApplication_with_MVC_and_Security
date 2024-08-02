@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Edit Question</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .btn-primary {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="mb-4">Edit Question</h1>
+    <form th:action="@{/admin/editQuestion}" th:object="${question}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+
+        <div class="form-group">
+            <label for="questionTitle">Question Title:</label>
+            <input type="text" id="questionTitle" th:field="*{questionTitle}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="option1">Option 1:</label>
+            <input type="text" id="option1" th:field="*{option1}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="option2">Option 2:</label>
+            <input type="text" id="option2" th:field="*{option2}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="option3">Option 3:</label>
+            <input type="text" id="option3" th:field="*{option3}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="option4">Option 4:</label>
+            <input type="text" id="option4" th:field="*{option4}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="rightAnswer">Right Answer:</label>
+            <input type="text" id="rightAnswer" th:field="*{rightAnswer}" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <input type="text" id="category" th:field="*{category}" class="form-control" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Question</button>
+        <a href="/admin/allQuestions" class="btn btn-secondary">Back to Questions List</a>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

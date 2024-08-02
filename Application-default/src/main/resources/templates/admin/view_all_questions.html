@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - View Questions</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>All Questions</h1>
+    <a href="/admin/addQuestion">Add New Question</a>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Category</th>
+            <th>Question Text</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Question Title</th>
+                <th>Option 1</th>
+                <th>Option 2</th>
+                <th>Option 3</th>
+                <th>Option 4</th>
+                <th>Right Answer</th>
+
+                <th>Category</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="question : ${questions}">
+                <td th:text="${question.id}"></td>
+                <td th:text="${question.questionTitle}"></td>
+                <td th:text="${question.option1}"></td>
+                <td th:text="${question.option2}"></td>
+                <td th:text="${question.option3}"></td>
+                <td th:text="${question.option4}"></td>
+                <td th:text="${question.rightAnswer}"></td>
+
+                <td th:text="${question.category}"></td>
+                <td>
+                    <a th:href="@{/admin/editQuestion/{id}(id=${question.id})}">Edit</a>
+                    <a th:href="@{/admin/deleteQuestion/{id}(id=${question.id})}" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+
+    </table>
+</div>
+</body>
+</html>

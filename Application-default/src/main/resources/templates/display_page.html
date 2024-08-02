@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Online Quiz Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <header class="d-flex justify-content-between align-items-center my-4">
+        <h1>Online Quiz Application</h1>
+        <div>
+            <a th:href="@{/logout}" class="btn btn-secondary">Logout</a>
+            <a th:href="@{/changePassword}" class="btn btn-secondary">Change Password</a>
+        </div>
+    </header>
+
+    <h2 class="mb-4">List of Students</h2>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Full Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student : ${students}">
+            <td th:text="${student}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

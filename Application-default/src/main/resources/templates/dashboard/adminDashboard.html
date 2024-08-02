@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #343a40;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        button {
+            padding: 8px 12px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .btn-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Online Quiz Application</h1>
+    <div>
+        <a href="#" th:href="@{/}" class="btn btn-light">Back</a>
+        <form action="#" th:action="@{/logout}" method="POST" style="display:inline;">
+            <button type="submit" class="btn btn-outline-light">Logout</button>
+        </form>
+    </div>
+</header>
+<div class="container">
+    <h1>Admin Dashboard</h1>
+    <div class="btn-container">
+        <a href="#" th:href="@{/admin/allQuestions}" class="btn btn-primary">View All Questions</a>
+        <a href="#" th:href="@{/admin/addQuestion}" class="btn btn-success">Add New Question</a>
+<!--        <a href="#" th:href="@{/admin/allStudents}" class="btn btn-info">View All Students</a>-->
+<!--        <a href="#" th:href="@{/admin/allProfessors}" class="btn btn-warning">View All Professors</a>-->
+<!--        <a href="#" th:href="@{/admin/updateRole}" class="btn btn-danger">Update Role</a>-->
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Quiz Application</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <!-- Add a logout button -->
+            <form action="#" th:action="@{/logout}" method="POST">
+                <input type="submit" value="Logout" class="btn btn-outline-primary mt-2" />
+            </form>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <h1 class="text-center">Student Dashboard</h1>
+    <div class="row">
+        <!-- Available Quizzes -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    View  Quizzes
+                </div>
+                <ul class="list-group list-group-flush">
+                        <a class="btn btn-outline-success mr-2" href="/student/quizList">View Quiz</a>
+                </ul>
+            </div>
+        </div>
+        <!-- Previous Quiz Results -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Create Quiz
+                </div>
+                <ul class="list-group list-group-flush">
+                    <a class="btn btn-outline-primary mr-2" href="/student/createQuiz">Create Quiz</a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #343a40;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        button, select {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        select {
+            padding: 10px;
+        }
+        .form-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Online Quiz Application</h1>
+    <div>
+        <a href="#" th:href="@{/}" class="btn btn-light">Back</a>
+        <form action="#" th:action="@{/logout}" method="POST" style="display:inline;">
+            <button type="submit" class="btn btn-outline-light">Logout</button>
+        </form>
+    </div>
+</header>
+<div class="container">
+    <h1>Professor Dashboard</h1>
+    <div class="btn-container">
+        <form th:action="@{/professor/allQuestions}" method="get">
+            <button type="submit" class="btn btn-primary">Show All Questions</button>
+        </form>
+        <form th:action="@{/professor/allQuizzes}" method="get">
+            <button type="submit" class="btn btn-success">Show All Quizzes</button>
+        </form>
+    </div>
+    <div class="form-container">
+        <form th:action="@{/professor/category}" method="get">
+            <label for="category">Select Category:</label>
+            <select id="category" name="category">
+                <option value="java">Java</option>
+                <option value="python">Python</option>
+                <option value="general">General</option>
+                <!-- Add more categories as needed -->
+            </select>
+            <button type="submit" class="btn btn-info">Show Questions by Category</button>
+        </form>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
